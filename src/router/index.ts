@@ -31,6 +31,14 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       },
       {
+        path: "/dayjs",
+        component: () => import("@/views/dayjs/index.vue"),
+        name: "Dayjs",
+        meta: {
+          title: "首页"
+        }
+      },
+      {
         path: "/lodash",
         component: () => import("@/views/lodash/index.vue"),
         name: "Lodash",
