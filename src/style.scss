@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// animate
+@import "animate.css";
+
+body {
+    @apply bg-slate-200
+}
