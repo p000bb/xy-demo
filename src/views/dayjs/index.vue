@@ -66,17 +66,26 @@
         dayjs("2020-01-01").isSame("2020-01-02")
       </pre>
     </div>
+    <div>
+      <span>2020-02-30 是否是一个有效的日期：{{ isValid }}</span>
+      <pre>
+        dayjs("2020-02-30").isValid()
+      </pre>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+
 import "dayjs/locale/zh-cn";
 import { ref } from "vue";
 import { useIntervalFn } from "@vueuse/core";
 dayjs.locale("zh-cn");
 dayjs.extend(relativeTime);
+dayjs.extend(customParseFormat);
 
 // 获取当前时间格式 YYYY-MM-DD HH:mm:ss
 const now = ref<string>(dayjs().format("YYYY-MM-DD HH:mm:ss"));
@@ -106,6 +115,9 @@ const diffSecond = dayjs("2020-01-01").diff("2020-01-02", "second"); // -86400
 const isAfter = dayjs("2020-01-01").isAfter("2020-01-02"); // true
 const isBefore = dayjs("2020-01-01").isBefore("2020-01-02"); // false
 const isSame = dayjs("2020-01-01").isSame("2020-01-02"); // false
+
+// 判断传入的日期是否准确
+const isValid = dayjs("2020-02-30", "YYYY-MM-DD", true).isValid(); // true
 </script>
 <style scoped lang="scss">
 .dayjs {
