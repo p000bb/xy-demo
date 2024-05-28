@@ -8,6 +8,7 @@
         :data-aos="item.name"
         class="my-20 w-[60%]"
         :class="index % 2 === 1 ? 'float-right' : 'float-left'"
+        v-bind="item.attr"
       >
         <pre>
         <div class="bg-[#202746] text-[#979db4] text-base py-10">
@@ -34,12 +35,18 @@ AOS.init({
   anchorPlacement: "top-bottom", // 锚点位置
   debounceDelay: 50, // 防抖延迟
   throttleDelay: 99, // 节流延迟
-  once: false, // 是否只执行一次
+  once: true, // 是否只执行一次
   offset: 200 // 偏移量
 });
 
 const list = [
-  { name: "fade-up", type: "FADE" },
+  {
+    name: "fade-up",
+    type: "FADE",
+    attr: {
+      "data-aos-duration": 2000
+    }
+  },
   { name: "fade-down", type: "FADE" },
   { name: "fade-right", type: "FADE" },
   { name: "fade-left", type: "FADE" },

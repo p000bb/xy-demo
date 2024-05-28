@@ -4,7 +4,7 @@
       <div
         v-for="(item, index) in list"
         :key="index"
-        class="flex items-center justify-center transition-all duration-300 ease-in-out shadow-lg rounded-2xl hover:cursor-pointer hover:shadow-2xl h-[300px]"
+        class="demo hover:cursor-pointer transition-all hover:scale-110"
         :style="item.style"
         @click="goRouter(item)"
       >
@@ -74,4 +74,8 @@ const goRouter = ({ name, href }: any) => {
   router.push({ path: `/${name}` });
 };
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.demo {
+  @apply flex items-center justify-center transition-all duration-300 ease-in-out shadow-lg rounded-2xl hover:cursor-pointer hover:shadow-2xl h-[300px];
+}
+</style>

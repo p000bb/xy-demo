@@ -88,9 +88,9 @@ dayjs.extend(relativeTime);
 dayjs.extend(customParseFormat);
 
 // 获取当前时间格式 YYYY-MM-DD HH:mm:ss
-const now = ref<string>(dayjs().format("YYYY-MM-DD HH:mm:ss"));
+const now = ref<string>(dayjs().format("YYYY年MM月DD日 HH:mm:ss"));
 useIntervalFn(() => {
-  now.value = dayjs().format("YYYY-MM-DD HH:mm:ss");
+  now.value = dayjs().format("YYYY年MM月DD日 HH:mm:ss");
 }, 1000);
 
 // 获取当前时间戳
@@ -118,6 +118,14 @@ const isSame = dayjs("2020-01-01").isSame("2020-01-02"); // false
 
 // 判断传入的日期是否准确
 const isValid = dayjs("2020-02-30", "YYYY-MM-DD", true).isValid(); // true
+
+// 使用dayjs获取2024年05月28日是礼拜几
+const day = dayjs("2024年05月28日", "YYYY年MM月DD日").day();
+console.log(day);
+
+// 使用dayjs获取今天是礼拜几
+const today = dayjs().day();
+console.log(today);
 </script>
 <style scoped lang="scss">
 .dayjs {

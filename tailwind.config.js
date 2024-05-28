@@ -27,7 +27,7 @@ export default {
           "white-space": "nowrap",
         },
         ".big-text": {
-          fontSize: "2rem",
+          fontSize: "3rem",
         }
       });
     })

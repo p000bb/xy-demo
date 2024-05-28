@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(item, index) in 20" class="flex h-screen">
+    <div v-for="(item, index) in 20" class="flex h-screen big-text">
       <img
         v-lazy-img="`https://place.dog/1000/700?key=${index}`"
         :key="index"
