@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen bg-slate-200">
-    <div class="grid grid-cols-4 gap-10 m-auto 3xl:grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2 max-lg:grid-cols-1">
+    <div class="grid grid-cols-4 gap-10 p-5 m-auto 3xl:grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2 max-lg:grid-cols-1">
       <div
         v-for="(item, index) in list"
         :key="index"

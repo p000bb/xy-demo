@@ -39,16 +39,30 @@ console.log(obj1, obj2);
 
 // #region 防抖示例
 const denumber = ref<number>(0);
-const debounceFn = debounce(() => {
-  denumber.value++;
-}, 1000);
+const debounceFn = debounce(
+  () => {
+    denumber.value++;
+  },
+  1000,
+  {
+    leading: false,
+    trailing: true
+  }
+);
 // #endregion
 
 // #region 节流示例
 const thnumber = ref<number>(0);
-const throttleFn = throttle(() => {
-  thnumber.value++;
-}, 1000);
+const throttleFn = throttle(
+  () => {
+    thnumber.value++;
+  },
+  1000,
+  {
+    leading: true,
+    trailing: true
+  }
+);
 
 // #endregion
 </script>

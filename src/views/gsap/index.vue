@@ -1,5 +1,6 @@
 <template>
   <section class="section0">
+    <div class="progress"></div>
     <div class="container relative h-screen">
       <svg
         class="fixed top-0 w-full h-auto mt-24 overflow-visible fat-logo"
@@ -48,10 +49,10 @@ gsap.registerPlugin(ScrollTrigger);
 // 初始化动画
 const startGsap = () => {
   var tl = gsap.timeline();
-  tl.from("#q", { duration: 2, x: -500, y: 1000, rotate: 90, opacity: 0.5 })
-    .from("#u", { duration: 2, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7")
-    .from("#d", { duration: 2, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7")
-    .from("#e", { duration: 2, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7");
+  tl.from("#q", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 })
+    .from("#u", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7")
+    .from("#d", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7")
+    .from("#e", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7");
 };
 
 const setGsap = () => {
@@ -90,6 +91,10 @@ const setGsap = () => {
         // 背景色跟着变化
         backgroundColor: `rgba(${self.progress * 255},${255 - self.progress * 255},${self.progress * 255})`
       });
+
+      gsap.to(".progress", {
+        width: 100 * self.progress + "%"
+      });
     }
   });
 };
@@ -109,5 +114,15 @@ onBeforeUnmount(() => {
 svg,
 svg * {
   pointer-events: none;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  z-index: 999;
 }
 </style>
